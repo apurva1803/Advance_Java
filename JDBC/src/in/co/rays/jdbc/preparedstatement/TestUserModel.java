@@ -46,7 +46,7 @@ public class TestUserModel
 				testSearch();
 				break;
 		}
-		
+		sc.close();
 		
 	}
 	
@@ -54,12 +54,27 @@ public class TestUserModel
 	{
 		UserBean bean = new UserBean();
 		
-		bean.setId(5);
-		bean.setFirstName("Bobby");
-		bean.setLastName("Roy");
-		bean.setLogin("bobby@gmail.com");
-		bean.setPassword("word12345");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter id to Add :");
+		bean.setId(sc.nextInt());
+		
+		System.out.println("First Name :");
+		bean.setFirstName(sc.next());
+		
+		System.out.println("Last Name :");
+		bean.setLastName(sc.next());
+		
+		System.out.println("UserId :");
+		bean.setLogin(sc.next());
+		
+		System.out.println("Password :");
+		bean.setPassword(sc.next());
+		
+		System.out.println("Date Of Birth :");
 		bean.setDob(new Date());
+		
+		sc.close();
 		
 		UserModel model = new UserModel();
 		
@@ -72,12 +87,27 @@ public class TestUserModel
 	{
 		UserBean bean = new UserBean();
 		
-		bean.setId(5);
-		bean.setFirstName("Rocky");
-		bean.setLastName("Roy");
-		bean.setLogin("rocky@gmail.com");
-		bean.setPassword("rockyrd45");
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter id to Update :");
+		bean.setId(sc.nextInt());
+		
+		System.out.println("First Name :");
+		bean.setFirstName(sc.next());
+		
+		System.out.println("Last Name :");
+		bean.setLastName(sc.next());
+		
+		System.out.println("UserId :");
+		bean.setLogin(sc.next());
+		
+		System.out.println("Password :");
+		bean.setPassword(sc.next());
+		
+		System.out.println("Date Of Birth :");
 		bean.setDob(new Date());
+		
+		sc.close();
 		
 		UserModel model = new UserModel();
 		
@@ -88,21 +118,32 @@ public class TestUserModel
 	public static void testDelete() throws Exception
 	{
 		UserBean bean = new UserBean();
-		
-		bean.setId(5);
-		
 		UserModel model = new UserModel();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter id to delete Record: ");
+		
+		bean.setId(sc.nextInt());
+		
+		sc.close();
 		
 		model.delete(bean);
 		
 	}
 	
-	private static void testFindByPk() throws Exception 
+	public static void testFindByPk() throws Exception 
 	{
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
 
-		bean = model.findByPk(3);
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Find Record By primary Key: ");
+		
+		bean = model.findByPk(sc.nextInt());
+		
+		sc.close();
 
 		if (bean != null) 
 		{
@@ -114,13 +155,23 @@ public class TestUserModel
 
 	}
 
-	private static void testAuthencticate() throws Exception
+	public static void testAuthencticate() throws Exception
 	{
 
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter UserId:");
+		String user = sc.next();
+		
+		System.out.println("Enter Password:");
+		String pass = sc.next();
 
-		bean = model.authenticate("harshit@gmail.com", "harshit123");
+		bean = model.authenticate(user, pass);
+		
+		sc.close();
 
 		if (bean != null) {
 			System.out.println("User Login Successful...");
@@ -132,12 +183,20 @@ public class TestUserModel
 
 	}
 
-	private static void testSearch() throws Exception 
+	public static void testSearch() throws Exception 
 	{
 		UserModel model = new UserModel();
 		UserBean bean = new UserBean();
 
-		bean.setFirstName("A");
+		System.out.println("Enter Char to search:");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String s = sc.next();
+		
+		bean.setFirstName(s);
+		
+		sc.close();
 
 		List<UserBean> list = model.search(bean);
 
@@ -154,7 +213,7 @@ public class TestUserModel
 		}
 
 	}
-
+	
 
 }
 

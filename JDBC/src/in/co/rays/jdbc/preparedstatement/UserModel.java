@@ -183,7 +183,7 @@ public class UserModel
 
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/rays", "root", "root");
 
-		StringBuffer sql = new StringBuffer("select * from st_user where id=1");
+		StringBuffer sql = new StringBuffer("select * from st_user where 1=1");
 
 		if (bean != null) 
 		{
