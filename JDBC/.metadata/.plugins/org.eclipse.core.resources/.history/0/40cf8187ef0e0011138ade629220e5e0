@@ -1,0 +1,128 @@
+package in.co.rays.jdbc.preparedstatement;
+
+import java.util.Iterator;
+import java.util.List;
+
+public class TestMarksheetModel 
+{
+	public static void main(String[] args) throws Exception 
+	{
+		//testAdd();
+		//testUpdate();
+		//testDelete();
+		//testGet();
+		//testGetMeritList();
+		testSearch();
+	}
+	
+	public static void testAdd() throws Exception
+	{
+		MarksheetBean bean = new MarksheetBean();
+		
+		bean.setId(16);
+		bean.setRollNo(116);
+		bean.setName("Shivam");
+		bean.setPhy(60);
+		bean.setChem(50);
+		bean.setMaths(55);
+		
+		MarksheetModel model = new MarksheetModel();
+		
+		int id = model.add(bean);
+		System.out.println("Record inserted at id: " + id);
+	}
+	
+	public static void testUpdate() throws Exception
+	{
+		MarksheetBean bean = new MarksheetBean();
+		
+		bean.setId(16);
+		bean.setRollNo(116);
+		bean.setName("Shivansh");
+		bean.setPhy(60);
+		bean.setChem(50);
+		bean.setMaths(55);
+		
+		MarksheetModel model = new MarksheetModel();
+		
+		model.update(bean);
+		
+	}
+	
+	public static void testDelete() throws Exception
+	{
+		MarksheetBean bean = new MarksheetBean();
+		
+		bean.setId(16);
+		
+		MarksheetModel model = new MarksheetModel();
+		
+		model.delete(bean);
+	}
+	
+	public static void testGet() throws Exception 
+	{
+		MarksheetModel model = new MarksheetModel();
+		MarksheetBean bean = new MarksheetBean();
+
+		bean = model.get(101);
+
+		if (bean != null) 
+		{
+			System.out.println(bean.getName());
+		} else {
+			System.out.println("User Not Found....");
+		}
+
+	}
+	
+	private static void testGetMeritList() throws Exception
+	{
+		MarksheetBean bean = new MarksheetBean();
+		MarksheetModel model = new MarksheetModel();
+		
+		List<MarksheetBean> list = model.getMeritList();
+		
+		Iterator<MarksheetBean> it = list.iterator();
+		
+		while(it.hasNext())
+		{
+			bean= it.next();
+			System.out.print(" "+bean.getId());
+			System.out.print(" "+bean.getName());
+			System.out.print(" "+bean.getRollNo());
+			System.out.print(" "+bean.getPhy());
+			System.out.print(" "+bean.getChem());
+			System.out.print(" "+bean.getMaths());
+			int total = bean.getPhy() + bean.getChem() + bean.getMaths();
+			double percentage = ((total) / 3);
+			System.out.print(" "+total);
+			System.out.println(" "+percentage);
+		}
+	}
+	
+	public static void testSearch() throws Exception
+	{
+		MarksheetBean bean = new MarksheetBean();
+		MarksheetModel model = new MarksheetModel();
+		
+		bean.setName("A");
+		//bean.setRollNo(101);
+		
+		List<MarksheetBean> list = model.search(bean);
+		
+		Iterator<MarksheetBean> it = list.iterator();
+		
+		while(it.hasNext())
+		{
+			bean= it.next();
+			System.out.print(" "+bean.getId());
+			System.out.print(" "+bean.getName());
+			System.out.print(" "+bean.getRollNo());
+			System.out.print(" "+bean.getPhy());
+			System.out.print(" "+bean.getChem());
+			System.out.print(" "+bean.getMaths());
+		}
+	}
+	
+}
