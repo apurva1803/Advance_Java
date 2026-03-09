@@ -1,22 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head > 
-	<title>My First Page</title>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello JSP SERVLET</h1>
-	
-	<%
-	for (int i=1; i<=10; i++) {
-	%>
-	
-	<h1><%=i %></h1>
-	
-	<%
-	}
-	%>
-	
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<div align="center">
+		<h1><a href="WelcomeCtl">Online Result System</a></h1>
+	</div>
 </body>
 </html>
