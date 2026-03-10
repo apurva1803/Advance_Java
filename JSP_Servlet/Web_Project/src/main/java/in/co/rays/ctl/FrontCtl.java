@@ -31,12 +31,16 @@ public class FrontCtl implements Filter {
 		HttpServletResponse res = (HttpServletResponse) response;
 
 		HttpSession session = req.getSession();
+		//session.setMaxInactiveInterval(15);
 
-		if (session.getAttribute("user") == null) {
+		if (session.getAttribute("user") == null) 
+		{
 			req.setAttribute("errorMsg", "your session is expired, please login again!");
 			RequestDispatcher rd = req.getRequestDispatcher("LoginView.jsp");
 			rd.forward(request, response);
-		} else {
+		} 
+		else 
+		{
 			chain.doFilter(req, res); // call next config filter / controller in the chain
 		}
 

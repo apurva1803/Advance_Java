@@ -1,0 +1,8 @@
+127.0.0.1 - - [09/Mar/2026:11:28:46 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:28:46 +0530] "GET /Web_Project/ HTTP/1.1" 200 249
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:28:50 +0530] "GET /Web_Project/WelcomeCtl HTTP/1.1" 200 456
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:29:01 +0530] "GET /Web_Project/LoginCtl HTTP/1.1" 200 952
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:29:14 +0530] "POST /Web_Project/LoginCtl HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:29:14 +0530] "GET /Web_Project/WelcomeCtl HTTP/1.1" 200 471
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:29:16 +0530] "GET /Web_Project/UserListCtl.do HTTP/1.1" 200 3107
+0:0:0:0:0:0:0:1 - - [09/Mar/2026:11:29:30 +0530] "GET /Web_Project/LoginCtl?operation=logout HTTP/1.1" 200 976
