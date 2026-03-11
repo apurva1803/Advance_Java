@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +28,8 @@ public class LoginCtl extends HttpServlet
 			session.invalidate(); // to destroy session
 			request.setAttribute("successMsg", "user logout successfully");
 		}
-
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp");
 		rd.forward(request, response);
 	}
@@ -48,8 +50,16 @@ public class LoginCtl extends HttpServlet
 
 			if (bean != null) {
 				System.out.println("user login successfully");
+				
 				session.setAttribute("user", bean);
 				response.sendRedirect("WelcomeCtl");
+				
+				//Cookie c = new Cookie(bean.getFirstName(), bean.getLastName());
+
+				//response.addCookie(c);
+				
+				//System.out.println(c);
+				
 				return;
 			} else {
 				request.setAttribute("errorMsg", "invalid login or password");
