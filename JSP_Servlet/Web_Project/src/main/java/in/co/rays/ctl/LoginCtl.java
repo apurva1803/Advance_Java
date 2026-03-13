@@ -54,11 +54,13 @@ public class LoginCtl extends HttpServlet
 				session.setAttribute("user", bean);
 				response.sendRedirect("WelcomeCtl");
 				
-				//Cookie c = new Cookie(bean.getFirstName(), bean.getLastName());
+				Cookie c = new Cookie(bean.getFirstName(), bean.getLastName());
 
-				//response.addCookie(c);
+				response.addCookie(c);
 				
-				//System.out.println(c);
+				System.out.println(c.getName());
+				
+				
 				
 				return;
 			} else {
